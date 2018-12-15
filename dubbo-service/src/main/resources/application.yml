@@ -1,0 +1,41 @@
+######################## jdbc ########################
+spring:
+  datasource:
+    druid:
+      db-type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql://localhost:3306/dubbo?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+
+######################## dubbo-server ########################
+dubbo:
+# 服务提供方信息
+  application:
+    id: dubbo-provider
+    name: dubbo-provider
+
+# dubbo 协议配置
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20880
+
+# 注册地址以及协议
+  registry:
+    address: 59.110.217.112:2181
+    protocol: zookeeper
+
+mybatis-plus:
+  type-enums-package: com.lwb.**.enums
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      field-strategy: not_null
+
+
+
